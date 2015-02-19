@@ -1,5 +1,5 @@
 # Google-Drive-API-Integration
-API Hook that takes a lead, inserts it into SalesForce, then MailGun, then Appends it to a file stored in Google Drive
+API Integration is an API that combines the SmartyStreets, MailGun, SalesForce and Google Drive API Hooks so that it takes a lead, inserts it into SalesForce, then MailGun, then Appends it to a file stored in Google Drive
 ## Google Drive API 
 ### About the API
 - Access, edit, and save your Google App's files to Google Drive.
@@ -18,49 +18,33 @@ API Hook that takes a lead, inserts it into SalesForce, then MailGun, then Appen
     https://spreadsheets.google.com/feeds,https://www.googleapis.com/auth/drive,https://www.googleapis.com/auth/drive.appdata,https://www.googleapis.com/auth/drive.apps.readonly,https://www.googleapis.com/auth/drive.file,https://www.googleapis.com/auth/drive.metadata.readonly,https://www.googleapis.com/auth/drive.readonly
 - Create an Account with [SmartyStreet] (https://smartystreets.com)
 - Login, click on the "API Keys" left menu item to Obtain the Auth ID and Auth Token (they are under the "Secret Keys" section)
-- Create a Box Developer account at [Box Developers] (https://app.box.com/developers/services)
-- Click on the "Create a Box Application" right hand menu item
-- enter the name of the application (any name you wish) into the "Application Name" field displayed, and ensure that the "Box content" radio button is selected
-- Click the "Create Application" button
-- If you are not already taken to the App you just created:
-    - Click on the "My Applications" right menu item
-    - Click the "Edit Application" button next to your newly created App
-- go to the "OAuth2 Parameters" section
-- Click the "Create a Developer Token" button
-- Copy the generated Token (This token has a 30 minute life)
 
 ### Getting Started Instructions
 #### Download and Import
-- Download GoogleDriveAPIHook.zip
+- Download migration.properties
 - Login to PolicyManager  example: http://localhost:9900
 - Select the root "Registry" organisation and click on the "Import Package" from the Actions navigation window on the right side of the screen
   - click on button to browse for the GoogleDriveAPIHook.zip archive file 
   - make sure select the migrations.properties file 
   - click Okay to start the importation of the hook.
-- this will create a "Google Drive API Hook" Organisation with the requisite artefacts needed to run the API.
+- this will create a "Google Drive API Integration" Organisation with the requisite artefacts needed to run the API.
 - Create a leads.txt file in the "/sm70/instances/nd "directory
 
 #### Verify Import
 - Expand the services folder in the Google Sheets API Hook you imported and find TrialLeads_API_Google VS
 
 #### Activate Anonymous Contract
-- Expand the contracts folder in the Google Drive API Hook you imported and find the "Anonymous" contract under the "Provided Contracts" folder
+- Expand the contracts folder in the Google Drive API Integration you imported and find the "Anonymous" contract under the "Provided Contracts" folder
 - click on the "Activate Contract" workflow activity in the righ-hand Activities portlet
 - ensure that the status changes to "Workflow Is Completed"
 
 #### Configure Security
-- select the TrialLeads_API_vs1 VS
+- select the TrialLeads_API_Google VS
 - select the "Operations" tab, then the "POST /leads" operation, then the "Process" tab for the operation.
 - Double click on the "ConfigureSmartyStreet" script activity 
 - Put in your Auth ID value into the "newQueryString" after the "auth-id=" and Auth Token after the "auth-token="
 - save the script activity
 - select the save process icon
-- Select the "PostLeadToBox" process in the Processes branch
-- Select the "Process" tab
-- Double click on the "Initialise Bearer Token" script activity
-- replace the value in the "processContext.setVariable("Bearer","BAJKzHbVsE7o66zIJ0iGXa3gU4sdRIRw");" line with the token you copied from the Box Developer site
-- Click the Finish button
-- Click the save process icon
 - Go to Google Drive Hook -> Policies -> Operational Policies -> Insert JWT into Downstream request policy
 - Click "modify" in the XML Policy Tab. An XML Policy Content editor dialog will be displayed.
 - change the value of the tns:fileLocation element to be the location and name of the file containing the private key of the Service account (this is obtain by exporting the key for the App in the [Google Developers Console] (https://console.developers.google.com/)). Note that the location must be absolute, not relative.
