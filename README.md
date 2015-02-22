@@ -1,5 +1,5 @@
 # Google-Drive-API-Integration
-API Integration is an API that combines the SmartyStreets, MailGun, SalesForce and Google Drive API Hooks so that it takes a lead, inserts it into SalesForce, then MailGun, then Appends it to a file stored in Google Drive
+API Integration is an API that combines the SalesForce and Google Drive API Hooks so that it takes a lead, inserts it into SalesForce, then Appends it to a file stored in Google Drive
 ## Google Drive API 
 ### About the API
 - Access, edit, and save your Google App's files to Google Drive.
