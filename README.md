@@ -60,9 +60,10 @@ API Integration is an API that combines the SalesForce and Google Drive API Hook
 
 
 #### Verify Connectivity
-- Using curl -H "Content-Type: application/json" -d '{"FirstName":"Paul","LastName":"Pogo40","Company":"SOA","Street":"2962 Rosemary LN NE","City":"Rochester","State":"MN","PostalCode":"55906","Email":"paul40@soa.com"}' http://Win7-64-vm:9905/GoogleLeads/leads (Make sure you use a unique value for both the Email and LastName values)
+- Using 
+    curl -H "Content-Type: application/json" -d '{"FirstName":"Paul","LastName":"Pogo40","Company":"SOA","Street":"2962 Rosemary LN NE","City":"Rochester","State":"MN","PostalCode":"55906","Email":"paul40@soa.com"}' http://Win7-64-vm:9905/GoogleLeads/leads (Make sure you use a unique value for both the Email and LastName values)
 - The correct response should be:
-    {"FirstName":"Paul","LastName":"Pogo40","Company":"SOA","Street":"2962 Rosemary LN NE","City":"Rochester","State":"MN","PostalCode":"55906","Email":"paul40@soa.com","SalesForceId":"00Q60000017Ar19EAC","SignUpStatus":{"salesForceStatus":"Success","MailGunStatus":"Success","Box":"Success"}}
+    {"salesForceStatus":"Success","Google":"Success"}
 - Log in to your Google Apps for Work Account [Google Drive] (https://drive.google.com/drive/#my-drive)
 - ensure that there is a "Lead" folder.
 - open the "Lead" folder and ensure there is a "leads.txt" file
