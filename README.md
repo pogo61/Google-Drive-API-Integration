@@ -1,4 +1,9 @@
-# Google-Drive-API-Integration
+# Akana API HOOK
+![Image of Akana] 
+(https://www.akana.com/img/formerlyLOGO8.png) 
+[Akana.com](http://akana.com)
+
+## Google-Drive-API-Integration
 API Integration is an API that combines the SalesForce and Google Drive API Hooks so that it takes a lead, inserts it into SalesForce, then Appends it to a file stored in Google Drive
 ## Google Drive API 
 ### About the API
